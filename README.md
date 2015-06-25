@@ -8,3 +8,6 @@ Example using the LinkIt One to communicate with Azure Websites and EventHub
 4. Update the WIFI credentials in the Arduino code
 5. Deploy website
 6. Deploy LinkIt One
+
+###Quick Video Walkthrough
+https://www.youtube.com/watch?v=qwjrrthRbsU&feature=youtu.be
