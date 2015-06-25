@@ -10,4 +10,4 @@ Example using the LinkIt One to communicate with Azure Websites and EventHub
 6. Deploy LinkIt One
 
 ###Quick Video Walkthrough
-https://www.youtube.com/watch?v=qwjrrthRbsU&feature=youtu.be
+http://youtu.be/qwjrrthRbsU
