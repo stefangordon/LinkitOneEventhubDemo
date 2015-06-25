@@ -3,8 +3,8 @@
 #include <LGPS.h>
 
 // WIFI
-#define WIFI_AP "woot"
-#define WIFI_PWD "w00tw00t"
+#define WIFI_AP ""
+#define WIFI_PWD ""
 
 // EVENT HUB
 #define DEVICEID "l1device" //How do we identify this device

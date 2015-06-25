@@ -30,7 +30,25 @@
         $(function () {
             // Get our Chart and configure the Y axis scale            
             var ctx = $("#myChart").get(0).getContext("2d");
-            var myLineChart = new Chart(ctx).Line(data, { "scaleOverride": true, "scaleStartValue": 500, "scaleStepWidth": 100, "scaleSteps": 6 });
+            
+            // Prep configuration for the chart wit empty dataset
+            var chartdata = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Analog Values",
+                        fillColor: "rgba(220,220,220,0.2)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: []
+                    }
+                ]
+            };
+            var myLineChart = new Chart(ctx).Line(chartdata, { "scaleOverride": true, "scaleStartValue": 500, "scaleStepWidth": 100, "scaleSteps": 6 });
+          
 
             // Declare a proxy to reference the SignalR hub.
             var viewhub = $.connection.viewHub;
@@ -51,23 +69,6 @@
                     
                     myLineChart.addData([message.value], timeString);
                 }
-            };
-
-            // Prep configuration for the chart wit empty dataset
-            var data = {
-                labels: [],
-                datasets: [
-                    {
-                        label: "Analog Values",
-                        fillColor: "rgba(220,220,220,0.2)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: []
-                    }
-                ]
             };
 
             // Start the connection to the SignalR hub

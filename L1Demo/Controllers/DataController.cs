@@ -11,11 +11,12 @@ namespace L1Demo.Controllers
 {
     public class DataController : ApiController
     {        
-        private readonly string HubUrl = "https://l1demo.servicebus.windows.net/hub/publishers/{0}/messages";
+        private readonly string HubUrl = "{0}/publishers/{1}/messages";
 
         public async Task<HttpResponseMessage> Post([FromBody] string eventData, string deviceId)
         {
-            string populatedUrl = string.Format(HubUrl, deviceId);
+            string eventHubURL = System.Configuration.ConfigurationManager.AppSettings["EventHubUrl"];
+            string populatedUrl = string.Format(HubUrl, eventHubURL, deviceId);
 
             var request = new HttpRequestMessage();
             request.Method = HttpMethod.Post;
