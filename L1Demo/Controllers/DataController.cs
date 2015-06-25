@@ -21,7 +21,7 @@ namespace L1Demo.Controllers
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(populatedUrl);
             request.Content = new StringContent(eventData, Encoding.UTF8, "application/atom+xml");
-            // build propertly formatted huburl
+
             request.Headers.Add("Authorization", this.Request.Headers.GetValues("Authorization").First());            
 
             HttpClient client = new HttpClient();

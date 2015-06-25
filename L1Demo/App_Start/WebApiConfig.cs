@@ -16,10 +16,6 @@ namespace L1Demo
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                "CrossDomain", "crossdomain.xml",
-                new { controller = "CrossDomain" });
-
-            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 defaults: new { controller = "Data" },
                 routeTemplate: "data/{deviceId}"
@@ -28,6 +24,7 @@ namespace L1Demo
             config.Routes.IgnoreRoute("htm", "*.htm");
             config.Routes.IgnoreRoute("js", "*.js");
             config.Routes.IgnoreRoute("root", "");
+            config.Routes.IgnoreRoute("www", "www/");
 
         }
     }
