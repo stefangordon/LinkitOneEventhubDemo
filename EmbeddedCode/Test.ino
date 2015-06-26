@@ -71,20 +71,20 @@ void PostGPS()
   LGPS.getData(&GpsInfo);
   String gpsResult = GetGPSResult((char*)GpsInfo.GPGGA);
 
-  PostData(String(HOST), String(ENDPOINT), gpsResult, String(SAS));
+  PostData(String(HOST), String(DEVICEID), gpsResult, String(SAS));
 }
 
 // Post an Analog reading from the ADC to EventHub
 void PostADC()
 {
-  PostData(String(HOST), String(ENDPOINT), GetADCResult(), String(SAS));
+  PostData(String(HOST), String(DEVICEID), GetADCResult(), String(SAS));
 }
 
 // Posts a message to EventHub
 // This method talks to our Azure Gateway because the current public
 // firmware does not support HTTPS (TLS/SSL).
 // If using an SDK with SSL support you can directly call Eventhub instead
-int PostData(String host, String endpoint, String data, String sas)
+int PostData(String host, String deviceID, String data, String sas)
 {
   Serial.print("Connecting to " + host);
   if(!Client.connect(host.c_str(), 80))
